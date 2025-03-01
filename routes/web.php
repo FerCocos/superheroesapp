@@ -12,9 +12,7 @@ Route::get('/', function () {
     Universe::all();
     echo "</pre>";*/
 
-    dump(Universe::all());
-    dump(Superheroe::all());
-    dump(Gender::all());
+    dd(Universe::all(), Superheroe::all(), Gender::all());
 
     //return view('welcome');
 });
