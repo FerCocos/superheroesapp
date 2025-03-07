@@ -12,6 +12,6 @@ class UniverseSeeder extends Seeder
      */
     public function run(): void
     {
-        universe::factory()->count(5)->create();
+        universe::factory()->count(2)->create();
     }
 }

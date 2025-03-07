@@ -13,6 +13,8 @@ class GenderSeeder extends Seeder
      */
     public function run(): void
     {
-        Gender::factory()->count(10)->create();
+        Gender::create(['name' => 'Female']);
+        Gender::create(['name' => 'Male']);
+        Gender::create(['name' => 'Non-binary']);
     }
 }

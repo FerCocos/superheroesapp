@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Universe;
 use App\Models\Gender;
 use App\Models\Superheroe;
+use App\Http\Controllers\GenderController;
 
 Route::get('/', function () {
     echo "Hello guys this is my first Laravel application.";
@@ -12,7 +13,9 @@ Route::get('/', function () {
     Universe::all();
     echo "</pre>";*/
 
-    dd(Universe::all(), Superheroe::all(), Gender::all());
+    dump(Universe::all());
 
     //return view('welcome');
 });
+
+Route::get('/gender', [GenderController::class, 'index']);
