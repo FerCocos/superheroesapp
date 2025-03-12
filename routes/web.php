@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UniverseController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Universe;
 use App\Models\Gender;
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('/gender', [GenderController::class, 'index']);
+Route::resource('universes', UniverseController::class);
