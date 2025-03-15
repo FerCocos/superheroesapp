@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Superheroe;
 use App\Models\Universe;
+use App\Models\Gender;
 
-class UniverseController extends Controller
+class SuperHeroController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $universes = Universe::all();
-        return view('universes.index', compact('universes'));
+        $superheroes = Superheroe::all();
+        return view('superheroes.index', compact('superheroes'));
     }
 
     /**
@@ -21,9 +23,9 @@ class UniverseController extends Controller
      */
     public function create()
     {
-
-        $universes = Universe::select('id', 'name') ->get();
-        return view('universes.create', compact('universes'));
+        $genders = Gender::select('id', 'name')->get();
+        $universes = Universe::select('id', 'name')->get();
+        return view('superheroes.create', compact('genders', 'universes'));
     }
 
     /**
@@ -31,20 +33,23 @@ class UniverseController extends Controller
      */
     public function store(Request $request)
     {
-        Universe::create([
+        Superheroe::create([
+            'gender_id' => $request->gender_id,
+            'universe_id' => $request->universe_id,
             'name' => $request->name,
-            'description' => $request->description,
-         ]);
-
-        return to_route('universes.index');
+            'real_name' => $request->real_name,
+            'picture' => $request->picture,
+        ]);
+        return to_route('superheroes.index');
     }
+
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        $universe = Universe::find($id);
-        return view('universes.show', compact('universe'));
+        $superhero = Superheroe::find($id);
+        return view('superheroes.show', compact('superhero'));
     }
 
     /**

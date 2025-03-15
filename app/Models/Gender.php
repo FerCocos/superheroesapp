@@ -11,4 +11,9 @@ class Gender extends Model
 
     protected $table = 'genders';
     protected $fillable = ['name'];
+
+    public function gender()
+    {
+        return $this->belongsTo(Gender::class, 'gender_id');
+    }
 }

@@ -11,6 +11,6 @@ class Universe extends Model
 
     protected $table = 'universes';
     protected $fillable = [
-        'name'
+        'name', 'description',
     ];
 }
