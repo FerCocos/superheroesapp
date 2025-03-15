@@ -27,6 +27,6 @@
     </tbody>
 </table>
 
-<a href="{{ route('universe.create') }}">Create New Universe</a>
+<a href="{{ route('universes.create') }}">Create New Universe</a>
 </body>
 </html>
