@@ -7,6 +7,9 @@
     <title>Genders</title>
 </head>
 <body>
-{{$gender->name}}
+    <h1>Name: {{$gender->name}}</h1>
+    <h1>ID: {{$gender->id}}</h1>
+    <br>
+    <a href="{{route('genders.index')}}">All genders</a>
 </body>
 </html>

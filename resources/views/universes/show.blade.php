@@ -7,6 +7,11 @@
     <title>Universe</title>
 </head>
 <body>
-{{$universe->name}}
+<h2>Name: {{$universe->name}}</h2>
+<h2>Description: {{$universe->description}}</h2>
+<h2>ID: {{$universe->id}}</h2>
+
+<br>
+<a href="{{route('universes.index')}}">All universes</a>
 </body>
 </html>

@@ -19,12 +19,24 @@
     <tbody>
     @foreach ($genders as $gender)
         <tr>
-            <td>{{ $gender->id }}</
+            <td>{{ $gender->id }}</td>
             <td>{{ $gender->name }}</td>
+            <td>
+                <a href="{{route('genders.show', $gender->id)}}">Show</a>
+                <a href="{{route('genders.edit', $gender->id)}}">Edit</a>
+
+                <form action="{{route('genders.destroy', $gender->id)}}" method="post">
+                @csrf
+                @method('delete')
+
+                <input type="submit" value="Delete" onclick="return confirm('Are you pretty sure? There is no way back')">
+                </form>
+            </td>
         </tr>
     @endforeach
     </tbody>
 </table>
+<br>
 <a href="{{route('genders.create')}}">Create new gender</a>
 </body>
 </html>

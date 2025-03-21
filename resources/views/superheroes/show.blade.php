@@ -8,6 +8,16 @@
     <title>Superhero</title>
 </head>
 <body>
-    <h1>{{ $superhero->name }}</h1>
+    <h1>Superhero: {{ $superhero->name }}</h1>
+    <h3>Real name: {{ $superhero->real_name }}</h3>
+    <h3>Universe: {{$superhero->universes->name}}</h3>
+    <h3>Gender: {{$superhero->gender->name}}</h3>
+    <h3>ID: {{$superhero->id}}</h3>
+    <h3>Picture:<br><img src="{{ $superhero->picture }}" alt="{{ $superhero->name }}" width="250"></h3>
+
+    <br>
+    <a href="{{route('superheroes.index')}}">All superheros</a>
+    <br>
+
 </body>
 </html>

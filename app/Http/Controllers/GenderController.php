@@ -50,7 +50,9 @@ public function show(string $id)
  */
 public function edit(string $id)
 {
-    //
+    $gender = Gender::find($id);
+    return view('genders.edit', compact('gender'));
+
 }
 
 /**
@@ -58,7 +60,11 @@ public function edit(string $id)
  */
 public function update(Request $request, string $id)
 {
-    //
+    $gender = Gender::find($id);
+    $gender->update([
+        'name' => $request->name,
+    ]);
+    return to_route('genders.index');
 }
 
 /**
@@ -66,6 +72,8 @@ public function update(Request $request, string $id)
  */
 public function destroy(string $id)
 {
-    //
+    $gender = Gender::find($id);
+    $gender->delete();
+    return to_route('genders.index');
 }
 }
